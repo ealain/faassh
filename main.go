@@ -49,7 +49,7 @@ func createTunnel(localPort string, jumpHost string, jumpHostPort string, jumpHo
 	// Example: 127.0.0.1:5001
 	// Then, `ssh -p 5001 foo@127.0.0.1` to connect to the function.
 	remoteEndpoint := &tunnel.Endpoint{
-		HostPort: net.JoinHostPort("127.0.0.1", jumpHostTunnelPort),
+		HostPort: net.JoinHostPort("0.0.0.0", jumpHostTunnelPort),
 	}
 
 	sshTunnelConfig := &ssh.ClientConfig{
