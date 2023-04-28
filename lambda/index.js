@@ -2,13 +2,15 @@
 console.log('[shim] start function');
 var child = require('child_process');
 
-const port = process.env.PORT || '2200';
-const jh = process.env.JUMP_HOST || '0.tcp.ngrok.io';
-const jhPort = process.env.JUMP_HOST_PORT || '15303';
-const jhUser = process.env.JUMP_HOST_USER|| 'csmith';
+const jh = process.env.JUMP_HOST;
+const jhPort = process.env.JUMP_HOST_PORT;
+const jhUser = process.env.JUMP_HOST_USER;
+const keyPath = process.env.KEY_PATH;
+const port = process.env.PORT;
+const tunnelPort = process.env.TUNNEL_PORT;
 
-const proc = child.spawn('./faassh',
-    `-port ${port} tunnel -jh ${jh} -jh-user ${jhUser} -jh-port ${jhPort} -tunnel-port 5001`.split(' '));
+const proc = child.spawn('/opt/bin/faassh',
+    `-i ${keyPath} -port ${port} tunnel -jh ${jh} -jh-user ${jhUser} -jh-port ${jhPort} -tunnel-port ${tunnelPort}`.split(' '));
 
 proc.on('error', function(err){
   console.error('[shim] error: %s', err)

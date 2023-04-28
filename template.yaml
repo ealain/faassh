@@ -23,8 +23,11 @@ Resources:
       CodeUri: ./lambda
       Environment:
         Variables:
-          PORT: 2200
-          JUMP_HOST: 0.tcp.ngrok.io
-          JUMP_HOST_PORT: 15303
+          JUMP_HOST:
+          JUMP_HOST_PORT:
+          JUMP_HOST_USER:
+          KEY_PATH:
+          PORT:
+          TUNNEL_PORT:
       Layers:
         - !Ref FaasshLayer
