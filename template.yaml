@@ -9,7 +9,7 @@ Resources:
       Description: faash server
       ContentUri: ./layer
       CompatibleRuntimes:
-        - nodejs8.10
+        - nodejs18.x
       LicenseInfo: 'MIT'
       RetentionPolicy: Retain
 
@@ -17,7 +17,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: index.handler
-      Runtime: nodejs8.10
+      Runtime: nodejs18.x
       Timeout: 120
       ReservedConcurrentExecutions: 1
       CodeUri: ./lambda
