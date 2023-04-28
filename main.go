@@ -85,10 +85,10 @@ func main() {
 		Port:     *sshdPort,
 	}
 
-	if tunnelCommand.Parsed() {
-		t := createTunnel(*sshdPort, *jumpHost, *jumpHostPort, *jumpHostUser, *jumpHostTunnelPort)
-		go t.Start()
-	}
+	tunnelCommand.Parse(os.Args[6:])
+
+	t := createTunnel(*sshdPort, *jumpHost, *jumpHostPort, *jumpHostUser, *jumpHostTunnelPort)
+	go t.Start()
 
 	s.Start()
 }
