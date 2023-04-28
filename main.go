@@ -17,7 +17,7 @@ var (
 )
 
 var (
-	sshdPort           = flag.String("port", "2200", "Port number for ssh server (non-priviliged)")
+	sshdPort           = flag.String("port", "2200", "Port number for ssh server (non-privileged)")
 	hostPrivateKey     = flag.String("i", "", "Path to RSA host private key")
 	jumpHost           = tunnelCommand.String("jh", "localhost", "Jump host")
 	jumpHostPort       = tunnelCommand.String("jh-port", "22", "Jump host SSH port number")
